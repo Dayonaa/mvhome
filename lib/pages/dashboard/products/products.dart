@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvhome/pages/dashboard/products/products_controller.dart';
+import 'package:mvhome/res/app_translations.dart';
 import 'package:mvhome/res/colors.dart';
 import 'package:mvhome/widgets/extension_widget.dart';
 import 'package:mvhome/widgets/primary_button.dart';
@@ -13,9 +14,11 @@ class Products extends GetView<ProductsController> {
   Widget build(BuildContext context) {
     return SliverScaffold(
       scrollController: controller.scrollController,
-      flexibleAppBar: "Produk Internet".toTitleLarge(color: Colors.white),
-      sliverChild: Padding(
-        padding: const EdgeInsets.all(16.0),
+      toolbar:
+          AppTranslations.internetProduct.toHeadlineLarge(color: Colors.white),
+      toolbarHeight: 100,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           spacing: 10,
           children: List.generate(10, (i) => _ProductItem()),
@@ -35,7 +38,7 @@ class _ProductItem extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Colors.grey[200],
+              color: AppColors.primaryLightGrey,
             ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -61,7 +64,7 @@ class _ProductItem extends StatelessWidget {
                     child: Column(
                       children: [
                         "30".toTitleLarge(color: Colors.white),
-                        "Mbps".toTitleMedium(color: Colors.white),
+                        AppTranslations.mbps.toTitleMedium(color: Colors.white),
                       ],
                     ),
                   ),
@@ -70,9 +73,9 @@ class _ProductItem extends StatelessWidget {
                       spacing: 10,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        "Paket Bronze".toTitleMedium(),
+                        AppTranslations.bronzePackages.toTitleMedium(),
                         "Excepteur Lorem sunt veniam ut ut ea. Consectetur commodo qui tempor anim amet esse voluptate. Sunt nulla esse voluptate exercitation labore sunt magna elit do et sint."
-                            .toLabelMedium(color: Colors.grey),
+                            .toLabelMedium(color: AppColors.primaryGrey),
                       ],
                     ),
                   )
@@ -90,8 +93,9 @@ class _ProductItem extends StatelessWidget {
                 PrimaryButton(
                     onPressed: () {},
                     rounded: 4,
-                    color: Colors.grey[200],
-                    child: "Beli Paket".toLabelLarge(color: Colors.grey))
+                    color: AppColors.primaryLightGrey,
+                    child: AppTranslations.buyPackage
+                        .toLabelLarge(color: AppColors.primaryGrey))
               ],
             ),
           )

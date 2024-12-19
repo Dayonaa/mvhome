@@ -72,7 +72,7 @@ class _CircularChartPainter extends CustomPainter {
     final double sweepAngle2 = (value2 / maxValue) * 2 * pi;
 
     // Max segmen
-    paint.color = Colors.grey;
+    paint.color = AppColors.primaryGrey;
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle,
         maxValue, false, paint);
     // Segmen 1

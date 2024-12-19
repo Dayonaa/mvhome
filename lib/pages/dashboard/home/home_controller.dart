@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:mvhome/widgets/sliver_scaffold.dart';
+import 'package:mvhome/controllers/user_controller.dart';
 
 class HomeController extends GetxController {
   ScrollController scrollController = ScrollController();
-  final SliverScaffoldController scaffoldController = Get.find();
+  final UserController userController = Get.find();
   @override
   void onInit() {
     scrollController.addListener(_onScroll);
@@ -17,11 +17,5 @@ class HomeController extends GetxController {
     super.dispose();
   }
 
-  void _onScroll() {
-    final bool hasScrolled =
-        scrollController.offset > scaffoldController.threshold;
-    if (hasScrolled != scaffoldController.isScrolledBeyondThreshold.value) {
-      scaffoldController.isScrolledBeyondThreshold.value = hasScrolled;
-    }
-  }
+  void _onScroll() {}
 }

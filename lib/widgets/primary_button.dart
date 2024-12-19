@@ -3,8 +3,8 @@ import 'package:mvhome/res/colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final Color? color;
+  final VoidCallback? onPressed;
   final Widget child;
-  final VoidCallback onPressed;
   final double? rounded;
   final double? minWidth;
   final EdgeInsets? padding;
@@ -12,8 +12,8 @@ class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
     this.color,
-    required this.child,
     required this.onPressed,
+    required this.child,
     this.rounded,
     this.minWidth,
     this.padding,

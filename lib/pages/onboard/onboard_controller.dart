@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvhome/pages/onboard/data/banner_data.dart';
+import 'package:mvhome/res/app_translations.dart';
 import 'package:mvhome/res/mv_icons.dart';
 import 'package:mvhome/utils/constant.dart';
+import 'package:mvhome/utils/storage.dart';
+import 'package:mvhome/widgets/extension_widget.dart';
 import 'package:mvhome/widgets/transparant_circle_label.dart';
 import 'package:mvhome/widgets/transparant_rounded_label.dart';
 
@@ -20,7 +23,12 @@ class OnboardController extends GetxController {
   RxInt currentPage = 0.obs;
 
   void Function() next() {
-    return () {
+    return () async {
+      if (currentPage.value == 2) {
+        await Storage.writeSkipOnboard();
+        await Get.offAllNamed("/login");
+        return;
+      }
       carouselPosition += initialExtent;
       carouselController.animateTo(carouselPosition,
           duration: Duration(seconds: 1), curve: Curves.ease);
@@ -39,24 +47,27 @@ class OnboardController extends GetxController {
                 top: 60,
                 left: 0,
                 child: TransparentRoundedLabel(
-                    text: "Internet Stabil", icon: MvIcons.support),
+                    text: AppTranslations.internetStable,
+                    icon: MvIcons.support),
               ),
               PositionedIconLabel(
                 bottom: 120,
                 left: 10,
                 child: TransparentRoundedLabel(
-                    text: "Layanan 24jam", icon: MvIcons.chart),
+                    text: AppTranslations.service24Hours, icon: MvIcons.chart),
               ),
               PositionedIconLabel(
                   bottom: 60,
                   right: 0,
                   child: TransparentRoundedLabel(
-                      text: "Jaringan Fiber Optik", icon: MvIcons.round_chart)),
+                      text: AppTranslations.fiberOpticNetwork,
+                      icon: MvIcons.round_chart)),
               PositionedIconLabel(
                   top: 110,
                   right: 0,
                   child: TransparentRoundedLabel(
-                      text: "Internet Unlimited", icon: MvIcons.support)),
+                      text: AppTranslations.unlimitedInternet,
+                      icon: MvIcons.support)),
             ]);
       case 1:
         return BannerData(
@@ -134,6 +145,22 @@ class OnboardController extends GetxController {
                   child: TransparentRoundedLabel(
                       text: "Internet Unlimited", icon: MvIcons.support)),
             ]);
+    }
+  }
+
+  Text? description() {
+    switch (currentPage.value) {
+      case 0:
+        return AppTranslations.internetSolutionMessage.toLabelLarge(
+            fontWeight: FontWeight.normal, textAlign: TextAlign.center);
+      case 1:
+        return AppTranslations.choosePackageMessage.toLabelLarge(
+            fontWeight: FontWeight.normal, textAlign: TextAlign.center);
+      case 2:
+        return AppTranslations.manageBillMessage.toLabelLarge(
+            fontWeight: FontWeight.normal, textAlign: TextAlign.center);
+      default:
+        return null;
     }
   }
 

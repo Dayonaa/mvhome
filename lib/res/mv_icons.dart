@@ -73,4 +73,6 @@ class MvIcons {
       IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user =
       IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData phone62 =
+      IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

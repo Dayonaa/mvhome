@@ -7,6 +7,7 @@ import 'package:mvhome/pages/dashboard/home/home.dart';
 import 'package:mvhome/pages/dashboard/navigation/navigation_controller.dart';
 import 'package:mvhome/pages/dashboard/products/products.dart';
 import 'package:mvhome/pages/dashboard/profile/profile.dart';
+import 'package:mvhome/res/colors.dart';
 import 'package:mvhome/widgets/custom_nav_bar.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
@@ -21,21 +22,23 @@ class Navigation extends GetView<NavigationController> {
         controller: controller.tabController,
         screens: [
           CustomNavBarScreen(
-            screen: Home(),
+            screen: Home(
+              key: controller.navKey(0),
+            ),
           ),
           CustomNavBarScreen(
-            screen: Products(),
+            screen: Products(key: controller.navKey(1)),
           ),
           CustomNavBarScreen(
-            screen: History(),
+            screen: History(key: controller.navKey(2)),
           ),
           CustomNavBarScreen(
-            screen: Profile(),
+            screen: Profile(key: controller.navKey(3)),
           ),
         ],
         itemCount: 4,
         isVisible: true,
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: AppColors.primaryGrey,
         navBarHeight: 80.0,
         customWidget: Obx(() => CustomNavBar(
               items: controller.navBarsItems(),

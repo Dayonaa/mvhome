@@ -1,4 +1,6 @@
-// ignore_for_file: constant_identifier_names
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 const String BCA = "assets/images/bca.png";
 const String CONFUSED = "assets/images/confused.png";
@@ -15,3 +17,5 @@ const String WELCOME = "assets/images/welcome.png";
 const String WELCOME_2 = "assets/images/welcome2.png";
 const String WELCOME_3 = "assets/images/welcome3.png";
 const String ORNAMENT = "assets/images/ornament.png";
+
+final String? BASE_URL = dotenv.env['BASE_URL'];
