@@ -72,7 +72,7 @@ class Register extends GetView<RegisterController> {
                 spacing: 20,
                 children: [
                   PrimaryButton(
-                      minWidth: Get.width,
+                      width: Get.width,
                       padding: EdgeInsets.symmetric(vertical: 14),
                       onPressed: controller.submitForm,
                       color: !controller.formNotEmpty.value

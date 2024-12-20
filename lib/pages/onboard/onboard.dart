@@ -39,7 +39,7 @@ class Onboard extends GetView<OnboardController> {
                 Obx(() => PrimaryButton(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     color: AppColors.secondary,
-                    minWidth: Get.width,
+                    width: Get.width,
                     onPressed: controller.next(),
                     child: (controller.currentPage.value == 2
                             ? AppTranslations.login
@@ -50,7 +50,7 @@ class Onboard extends GetView<OnboardController> {
                 PrimaryButton(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     color: AppColors.primaryLightGrey,
-                    minWidth: Get.width,
+                    width: Get.width,
                     child: AppTranslations.createAccount
                         .toTitleLarge(fontWeight: FontWeight.normal),
                     onPressed: () => Get.offAllNamed("/register"))

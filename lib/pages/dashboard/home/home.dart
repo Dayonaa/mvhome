@@ -93,6 +93,7 @@ class _Content extends StatelessWidget {
                 AppTranslations.upgradeInternetPackage.toNormalText(),
                 PrimaryButton(
                     rounded: 20,
+                    height: 40,
                     child: Row(
                       spacing: 8,
                       children: [
@@ -193,6 +194,7 @@ class _InternetBillWidget extends StatelessWidget {
                 ],
               ),
               PrimaryButton(
+                  height: 40,
                   color: AppColors.secondaryLightGrey,
                   child: Row(
                     spacing: 10,

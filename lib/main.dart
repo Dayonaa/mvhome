@@ -10,13 +10,14 @@ import 'package:mvhome/pages/dashboard/navigation/navigation_controller.dart';
 import 'package:mvhome/pages/login/login.dart';
 import 'package:mvhome/pages/login/login_controller.dart';
 import 'package:mvhome/pages/onboard/onboard.dart';
+import 'package:mvhome/pages/onboard/onboard_controller.dart';
 import 'package:mvhome/pages/register/register.dart';
 import 'package:mvhome/pages/register/register_controller.dart';
 import 'package:mvhome/res/app_translations.dart';
 import 'package:mvhome/widgets/extension_widget.dart';
 import 'package:mvhome/widgets/normal_scaffold.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await dotenv.load(fileName: ".env");
@@ -50,10 +51,10 @@ class MvHomeApp extends StatelessWidget {
               AuthMiddleware(),
             ]),
         GetPage(
-          name: '/onboard',
-          transition: Transition.cupertino,
-          page: () => Onboard(),
-        ),
+            name: '/onboard',
+            transition: Transition.cupertino,
+            page: () => Onboard(),
+            binding: OnboardBindings()),
         GetPage(
           name: '/login',
           transition: Transition.cupertino,

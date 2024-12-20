@@ -13,6 +13,7 @@ import 'package:mvhome/pages/dashboard/profile/profile_controller.dart';
 import 'package:mvhome/res/app_translations.dart';
 import 'package:mvhome/res/colors.dart';
 import 'package:mvhome/res/mv_icons.dart';
+import 'package:mvhome/services/auth_services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class NavigationBinding implements Bindings {

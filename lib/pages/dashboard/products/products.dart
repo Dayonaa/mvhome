@@ -91,6 +91,7 @@ class _ProductItem extends StatelessWidget {
               children: [
                 "Rp.230.000".toTitleLarge(),
                 PrimaryButton(
+                    height: 40,
                     onPressed: () {},
                     rounded: 4,
                     color: AppColors.primaryLightGrey,

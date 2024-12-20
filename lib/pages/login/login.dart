@@ -67,7 +67,7 @@ class Login extends GetView<LoginController> {
                 spacing: 20,
                 children: [
                   Obx(() => PrimaryButton(
-                      minWidth: Get.width,
+                      width: Get.width,
                       padding: EdgeInsets.symmetric(vertical: 14),
                       onPressed: controller.submit,
                       color: !controller.formNotEmpty.value
@@ -79,7 +79,7 @@ class Login extends GetView<LoginController> {
                               : AppColors.primaryGrey,
                           fontWeight: FontWeight.normal))),
                   PrimaryButton(
-                      minWidth: Get.width,
+                      width: Get.width,
                       padding: EdgeInsets.symmetric(vertical: 14),
                       onPressed: () {},
                       color: AppColors.primaryLightGrey,

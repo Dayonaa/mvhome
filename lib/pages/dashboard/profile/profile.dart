@@ -6,7 +6,6 @@ import 'package:mvhome/pages/dashboard/profile/profile_controller.dart';
 import 'package:mvhome/res/app_translations.dart';
 import 'package:mvhome/res/colors.dart';
 import 'package:mvhome/utils/storage.dart';
-import 'package:mvhome/utils/utilities.dart';
 import 'package:mvhome/widgets/extension_widget.dart';
 import 'package:mvhome/widgets/primary_button.dart';
 import 'package:mvhome/widgets/primary_form_fields.dart';
@@ -70,19 +69,19 @@ class Profile extends GetView<ProfileController> {
                 spacing: 20,
                 children: [
                   PrimaryButton(
-                      minWidth: Get.width,
+                      width: Get.width,
                       color: AppColors.secondary,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       onPressed: () => {},
                       child: "Simpan Infomasi".toTitleLarge(
                           color: Colors.white, fontWeight: FontWeight.normal)),
                   PrimaryButton(
-                      minWidth: Get.width,
+                      width: Get.width,
                       color: AppColors.secondary,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       onPressed: () async {
                         await Storage.writeToken(null);
-                        Get.offAndToNamed("/login");
+                        Get.offAllNamed("/login");
                       },
                       child: "Keluar".toTitleLarge(
                           color: Colors.white, fontWeight: FontWeight.normal)),

@@ -39,7 +39,7 @@ class History extends GetView<HistoryController> {
             PrimaryButton(
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10),
-                minWidth: Get.width,
+                width: Get.width,
                 child: AppTranslations.buyPackage
                     .toTitleLarge(fontWeight: FontWeight.normal),
                 onPressed: () {})

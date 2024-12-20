@@ -6,8 +6,9 @@ class PrimaryButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget child;
   final double? rounded;
-  final double? minWidth;
+  final double? width;
   final EdgeInsets? padding;
+  final double? height;
 
   const PrimaryButton({
     super.key,
@@ -15,22 +16,26 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     required this.child,
     this.rounded,
-    this.minWidth,
+    this.width,
     this.padding,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      minWidth: minWidth,
-      padding: padding,
-      elevation: 0.0,
-      onPressed: onPressed,
-      color: color ?? AppColors.primary,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(rounded ?? 6),
+    return SizedBox(
+      width: width,
+      height: height ?? 50,
+      child: MaterialButton(
+        padding: padding,
+        elevation: 0.0,
+        onPressed: onPressed,
+        color: color ?? AppColors.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(rounded ?? 6),
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }
